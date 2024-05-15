@@ -1,7 +1,12 @@
+#include <chrono> 
+
 #ifndef STATE_H
 #define STATE_H
 
-class App;
+class App; 
+
+/* --------------------------------------------------------------------- State Definitions ------------------------------------------------------------------ */
+
 class State
 {
 protected:
@@ -15,4 +20,34 @@ public:
     virtual inline void addLines() = 0;
 };
 
-#endif 
+
+/* --------------------------------------------------------------------- State Definitions ------------------------------------------------------------------ */
+
+/* --------------------------------------------------------------------- OffState Definitions ------------------------------------------------------------------ */
+class OffState : public State
+{
+public:
+    explicit OffState(App* app)  ; 
+    void toggle()       ;
+    bool isOpen() const ;
+    void addLines()     ;
+};
+
+/* --------------------------------------------------------------------- OffState Definitions ------------------------------------------------------------------ */
+
+class OnState : public State {
+private:
+    std::chrono::time_point<std::chrono::high_resolution_clock> start;
+    std::chrono::duration<double> time {};
+    std::chrono::duration<double> *ptr_time { &time };
+
+public:
+    explicit OnState(App* app);
+    ~OnState() override;
+
+    void toggle() override;
+    bool isOpen() const override;
+    void addLines() override;
+};
+
+#endif // STATE_H
