@@ -45,3 +45,11 @@ std::chrono::duration<double> App::getTimeSpent() const {
     return duration_spent;
 }
 
+bool App::isOpen()
+{
+  return currentState->isOpen() ; 
+}
+
+
+
+

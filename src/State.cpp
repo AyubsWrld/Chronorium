@@ -1,7 +1,10 @@
 #include "State.h"
 #include "App.h"
+#include "ConcatLines.h"
 #include <iostream>
 #include <stdexcept>
+#include <chrono>
+#include <thread>
 
 
 
@@ -15,12 +18,15 @@ State::~State() {}
 
 /* --------------------------------------------------------------------- OffState Implementation ------------------------------------------------------------------ */
 
-OffState::OffState(App* app) : State(app) {} ; 
+OffState::OffState(App* app) : State(app) { } ; 
 void OffState::toggle()
 {
   app->setState(new OnState(app)); // Pass app to the new state
 }
-bool OffState::isOpen() const { return false; } 
+bool OffState::isOpen() const 
+{ 
+  return false; 
+} 
 void OffState::addLines()  
 {
   try 
@@ -32,23 +38,31 @@ void OffState::addLines()
     std::cerr << "Error: " << e.what() << std::endl;
   }
 }
+
 /* --------------------------------------------------------------------- OffState Implementation ------------------------------------------------------------------ */
 
-OnState::OnState(App* app) : State(app), start(std::chrono::high_resolution_clock::now()) {}
+OnState::OnState(App* app) : State(app), start(std::chrono::high_resolution_clock::now()) {  }
+
 
 OnState::~OnState() {}
 
-void OnState::toggle() {
+void OnState::toggle() 
+{
+    /* std::thread background(concatLines , app ) ; */
     auto end = std::chrono::high_resolution_clock::now();
     *ptr_time = end - start;
     app->addDuration(*ptr_time);
-    app->setState(new OffState(app));  // Make sure OffState is fully defined or included
+    app->setState(new OffState(app));  
 }
 
-bool OnState::isOpen() const {
-    return true;
+bool OnState::isOpen() const 
+{
+  return true;
 }
 
-void OnState::addLines() {
-    app->lines_written += 1;
+
+void OnState::addLines() 
+{
+  std::thread background(concatLines , app ) ; 
+  background.join() ;
 }
