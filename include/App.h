@@ -25,6 +25,8 @@ public:
     void addDuration(std::chrono::duration<double> time);
     std::string getName() const;
     std::chrono::duration<double> getTimeSpent() const;
+    bool isOpen();
+
 };
 
 #endif // APP_H

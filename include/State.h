@@ -31,6 +31,7 @@ public:
     void toggle()       ;
     bool isOpen() const ;
     void addLines()     ;
+    void incrementTime();
 };
 
 /* --------------------------------------------------------------------- OffState Definitions ------------------------------------------------------------------ */
