@@ -3,21 +3,21 @@
 #ifndef STATE_H
 #define STATE_H
 
-class App; 
+class App;  // Forward Declaration of App 
 
 /* --------------------------------------------------------------------- State Definitions ------------------------------------------------------------------ */
 
 class State
 {
 protected:
-    App* app; // Protected so that derived classes can access it directly
+    App* app                                          ;     // Protected so that derived classes can access it directly
 public:
-    explicit State(App* app); // Constructor to initialize App pointer
-    virtual ~State();
+    explicit            State(App* app)               ;    // Constructor to initialize App pointer
+    virtual             ~State()                      ;
 
-    virtual void toggle() = 0 ;
-    virtual bool isOpen() const = 0 ;
-    virtual inline void addLines() = 0;
+    virtual void        toggle()       = 0            ;
+    virtual bool        isOpen() const = 0            ; 
+    virtual inline void addLines()     = 0            ;
 };
 
 
@@ -27,28 +27,28 @@ public:
 class OffState : public State
 {
 public:
-    explicit OffState(App* app)  ; 
-    void toggle()       ;
-    bool isOpen() const ;
-    void addLines()     ;
-    void incrementTime();
+    explicit            OffState(App* app)            ; 
+    void                toggle()                      ;
+    bool                isOpen()                const ;
+    void                addLines()                    ;
+    void                incrementTime()               ;
 };
 
 /* --------------------------------------------------------------------- OffState Definitions ------------------------------------------------------------------ */
 
 class OnState : public State {
 private:
-    std::chrono::time_point<std::chrono::high_resolution_clock> start;
-    std::chrono::duration<double> time {};
-    std::chrono::duration<double> *ptr_time { &time };
+    std::chrono::time_point<std::chrono::high_resolution_clock> start     ; // Logic which controls duration and
+    std::chrono::duration<double> time {}                                 ; // Concatenates it to the running total
+    std::chrono::duration<double> *ptr_time { &time }                     ;
 
 public:
-    explicit OnState(App* app);
-    ~OnState() override;
+    explicit OnState(App* app)                        ;
+    ~OnState() override                               ;
 
-    void toggle() override;
-    bool isOpen() const override;
-    void addLines() override;
+    void                toggle()            override  ;
+    bool                isOpen()            const     ;
+    void                addLines()          override  ;
 };
 
 #endif // STATE_H
