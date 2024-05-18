@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include "State.h"
 #include "App.h"
 #include "ConcatLines.h"

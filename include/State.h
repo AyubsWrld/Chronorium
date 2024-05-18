@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 #include <chrono> 
 
 #ifndef STATE_H
