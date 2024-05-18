@@ -23,9 +23,9 @@ void OffState::toggle()
 {
   app->setState(new OnState(app)); // Pass app to the new state
 }
-bool OffState::isOpen() const 
+bool  OffState::isOpen()  const
 { 
-  return false; 
+  return false  ;  
 } 
 void OffState::addLines()  
 {
@@ -48,21 +48,19 @@ OnState::~OnState() {}
 
 void OnState::toggle() 
 {
-    /* std::thread background(concatLines , app ) ; */
-    auto end = std::chrono::high_resolution_clock::now();
-    *ptr_time = end - start;
-    app->addDuration(*ptr_time);
-    app->setState(new OffState(app));  
+  auto end = std::chrono::high_resolution_clock::now();
+  *ptr_time = end - start;
+  app->addDuration(*ptr_time);
+  app->setState(new OffState(app));  
 }
 
-bool OnState::isOpen() const 
+bool  OnState::isOpen()  const
 {
-  return true;
+  return  true ;
 }
 
 
 void OnState::addLines() 
 {
-  std::thread background(concatLines , app ) ; 
-  background.join() ;
+  concatLines( app )  ; 
 }

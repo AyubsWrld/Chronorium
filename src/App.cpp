@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>  
+#include <functional>
 #include "App.h"
 #include "State.h" 
 
@@ -30,6 +31,7 @@ void App::addLines() {
 }
 
 std::uint32_t App::getLines() const {
+    std::cout << lines_written << std::endl;
     return lines_written;
 }
 
@@ -45,10 +47,12 @@ std::chrono::duration<double> App::getTimeSpent() const {
     return duration_spent;
 }
 
-bool App::isOpen()
+bool App::isOpen() const
 {
   return currentState->isOpen() ; 
 }
+
+
 
 
 
