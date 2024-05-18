@@ -10,5 +10,5 @@
 #pragma once 
 
 class App ;
-
 void concatLines( App* app );    // Function to keylog user input to view lines written by user
+
