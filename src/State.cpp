@@ -10,7 +10,7 @@
 
 /* --------------------------------------------------------------------- State Implementation ------------------------------------------------------------------ */
 
-State::State(App* app) : app(app) {} // Constructor to initialize App pointer
+State::State(std::shared_ptr<App> app) : app(app) {} // Constructor to initialize App pointer
 State::~State() {}
 
 /* --------------------------------------------------------------------- State Implementation ------------------------------------------------------------------ */
@@ -18,7 +18,7 @@ State::~State() {}
 
 /* --------------------------------------------------------------------- OffState Implementation ------------------------------------------------------------------ */
 
-OffState::OffState(App* app) : State(app) { } ; 
+OffState::OffState(std::shared_ptr<App> app) : State(app) { } ; 
 void OffState::toggle()
 {
   app->setState(new OnState(app)); // Pass app to the new state
@@ -41,7 +41,7 @@ void OffState::addLines()
 
 /* --------------------------------------------------------------------- OffState Implementation ------------------------------------------------------------------ */
 
-OnState::OnState(App* app) : State(app), start(std::chrono::high_resolution_clock::now()) {  }
+OnState::OnState(std::shared_ptr<App> app) : State(app), start(std::chrono::high_resolution_clock::now()) {  }
 
 
 OnState::~OnState() {}

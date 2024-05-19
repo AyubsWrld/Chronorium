@@ -1,4 +1,5 @@
 #include <chrono> 
+#include <memory> 
 
 #ifndef STATE_H
 #define STATE_H
@@ -10,9 +11,9 @@ class App;  // Forward Declaration of App
 class State
 {
 protected:
-    App* app                                          ;     // Protected so that derived classes can access it directly
+    std::shared_ptr<App>  app                                          ;     // Protected so that derived classes can access it directly
 public:
-    explicit            State(App* app)               ;    // Constructor to initialize App pointer
+    explicit            State(std::shared_ptr<App> app)               ;    // Constructor to initialize App pointer
     virtual             ~State()                      ;
 
     virtual void        toggle()       = 0            ;
@@ -27,7 +28,7 @@ public:
 class OffState : public State
 {
 public:
-    explicit            OffState(App* app)            ; 
+    explicit            OffState(std::shared_ptr<App> app)            ; 
     void                toggle()                      ;
     bool                isOpen()                const ;
     void                addLines()                    ;
@@ -43,7 +44,7 @@ private:
     std::chrono::duration<double> *ptr_time { &time }                     ;
 
 public:
-    explicit OnState(App* app)                        ;
+    explicit OnState(std::shared_ptr<App> app)                        ;
     ~OnState() override                               ;
 
     void                toggle()            override  ;

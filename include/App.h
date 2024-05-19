@@ -2,14 +2,14 @@
 #define APP_H
 
 #include <string>
-
+#include <memory>
  
 // Forward declaration of State to avoid including State.h
 class State;
 
 class App {
 
-    State*               currentState                 ;
+    std::shared_ptr<State>    currentState                 ;
     std::string          m_appName                    ;
 
 public:
@@ -23,9 +23,9 @@ public:
     ~App();
 
     //Mmeber Functions
-    void                 setState(State* state)       ;
-    void                 toggle()                     ;
-    void                 addLines()                   ;
+    void                 setState(std::shared_ptr<State> state)       ;
+    void                 toggle()                                         ;
+    void                 addLines()                      ;
     std::uint32_t        getLines()              const;
     void addDuration(std::chrono::duration<double> time);
     std::string          getName()               const;

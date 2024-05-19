@@ -11,7 +11,7 @@ App::~App() {
     delete currentState;
 }
 
-void App::setState(State* state) {
+void App::setState(std::shared_ptr<State> state) {
     if (currentState) {
         delete currentState;
     }
