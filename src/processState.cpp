@@ -1,4 +1,6 @@
 #include "processState.h"
+#include "isForeground.h"
+
 
 
 std::string toLower(std::string data)
@@ -36,12 +38,21 @@ int getProcessStatus(std::string name)
   {
     if( toLower(( std::string ) pe32.szExeFile) == toLower(name) )
     {
-      std::wcout << L"Process name: " << pe32.szExeFile << std::endl;
-      std::wcout << L"Process ID: " << pe32.th32ProcessID << std::endl;
-      std::wcout << L"Parent Process ID: " << pe32.th32ParentProcessID << std::endl;
-      std::wcout << L"Thread count: " << pe32.cntThreads << std::endl;
-      found = 1 ; 
-      break ; 
+      const char* cString = name.c_str();
+      if(IsProcessInForeground(cString))
+      {
+        std::wcout << L"Process name: " << pe32.szExeFile << std::endl;
+        std::cout << "And process is running in foreground" << std::endl;
+        found = 1 ; 
+        break ; 
+      }
+      else
+      {
+        std::wcout << L"Process name: " << pe32.szExeFile << std::endl;
+        std::cout << "Process is not running in background" << std::endl;
+        found = 1 ; 
+        break ; 
+      }
     }
   }  
   if(!found)
@@ -50,6 +61,21 @@ int getProcessStatus(std::string name)
     std::cout << "Process not found";
   }
   CloseHandle(hProcessSnap);
-  std::cout << found << std::endl;
   return 0;
+}
+
+
+void test(std::string processName , App * app)
+{
+  app->toggle() ; 
+  BOOL isRunning { 0 }; 
+  while(!isRunning)
+  {
+    std::this_thread::sleep_for(std::chrono::seconds(1)) ; 
+    isRunning = getProcessStatus(processName); 
+  }
+  app->toggle() ; 
+  std::cout << "\nProcess Ended" << std::endl;
+  std::cout << "-------------------------------------------------------" << std::endl;
+  std::cout << processName << " Ran for: " << app->getDurationSpent().count() << "s";
 }

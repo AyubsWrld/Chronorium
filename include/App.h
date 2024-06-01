@@ -26,14 +26,15 @@ public:
     ~App();
 
     //Mmeber Functions
-    void                 setState(State* state)       ;
-    void                 toggle()                     ;
-    void                 addLines()                   ;
-    std::uint32_t        getLines()              const;
+    void                 setState(State* state)         ;
+    void                 toggle()                       ;
+    void                 addLines()                     ;
+    std::uint32_t        getLines()              const  ;
     void addDuration(std::chrono::duration<double> time);
-    std::string          getName()               const;
-    std::chrono::duration<double> getTimeSpent() const;
-    bool                 isOpen()                const ;
+    std::string          getName()               const  ;
+    std::chrono::duration<double> getTimeSpent() const  ;
+    bool                 isOpen()                const  ;
+    std::chrono::seconds getDurationSpent()      const  ;
 };
 
 #endif // APP_H

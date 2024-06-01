@@ -1,5 +1,6 @@
 #include "isForeground.h"
 
+
 BOOL CALLBACK EnumWindowsProc(HWND hwnd, LPARAM lParam) {
     char windowTitle[256];
     if (GetWindowTextA(hwnd, windowTitle, sizeof(windowTitle))) {

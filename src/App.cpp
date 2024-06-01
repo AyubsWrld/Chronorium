@@ -36,11 +36,17 @@ std::uint32_t App::getLines() const {
 }
 
 void App::addDuration(std::chrono::duration<double> time) {
+    /* duration_spent += std::chrono::duration_cast<std::chrono::seconds>(time); */
     duration_spent += time;
 }
 
 std::string App::getName() const {
     return m_appName;
+}
+
+std::chrono::seconds App::getDurationSpent() const
+{
+  return std::chrono::duration_cast<std::chrono::seconds>(duration_spent) ; 
 }
 
 std::chrono::duration<double> App::getTimeSpent() const {
