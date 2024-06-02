@@ -42,14 +42,16 @@ int getProcessStatus(std::string name)
       if(IsProcessInForeground(cString))
       {
         std::wcout << L"Process name: " << pe32.szExeFile << std::endl;
-        std::cout << "And process is running in foreground" << std::endl;
-        found = 1 ; 
+        std::cout << "And process is running in :    FOREGROUND" << std::endl; 
+        std::cout << "\n" << std::endl;
+        found = 1 ;
         break ; 
-      }
+      } 
       else
       {
         std::wcout << L"Process name: " << pe32.szExeFile << std::endl;
-        std::cout << "Process is not running in background" << std::endl;
+        std::cout << "Process is running in :        BACKGROUND" << std::endl;
+        std::cout << "\n" << std::endl;
         found = 1 ; 
         break ; 
       }
@@ -65,7 +67,7 @@ int getProcessStatus(std::string name)
 }
 
 
-void test(std::string processName , App * app)
+void handleProcesses(std::string processName , App * app)
 {
   app->toggle() ; 
   BOOL isRunning { 0 }; 
@@ -77,5 +79,5 @@ void test(std::string processName , App * app)
   app->toggle() ; 
   std::cout << "\nProcess Ended" << std::endl;
   std::cout << "-------------------------------------------------------" << std::endl;
-  std::cout << processName << " Ran for: " << app->getDurationSpent().count() << "s";
+  std::cout << processName << " Ran for: " << app->getDurationSpent().count() << "s" << std::endl;
 }
