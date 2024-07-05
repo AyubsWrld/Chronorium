@@ -67,7 +67,7 @@ int getProcessStatus(std::string name)
 }
 
 
-void handleProcesses(std::string processName , App * app)
+void handleProcesses(std::string  processName , App * app)
 {
   app->toggle() ; 
   BOOL isRunning { 0 }; 
