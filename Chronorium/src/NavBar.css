@@ -1,0 +1,54 @@
+/* Basic reset for padding and margins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #333; /* Dark background color */
+  padding: 10px 20px; /* Padding for spacing */
+  color: #fff; /* White text color */
+  position: fixed; /* Fixed position at the top */
+  width: 100%; /* Full width */
+  top: 0; /* Aligns to the top */
+  left: 0; /* Aligns to the left */
+  z-index: 1000; /* Ensure it stays above other content */
+}
+
+.navbar-container {
+  display: flex; /* Flexbox for layout */
+  justify-content: space-between; /* Space between logo and menu */
+  align-items: center; /* Center items vertically */
+}
+
+.navbar-logo {
+  font-size: 24px; /* Font size for logo */
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+}
+
+.navbar-menu {
+  list-style: none; /* Remove bullets */
+  display: flex; /* Flexbox for horizontal menu items */
+}
+
+.navbar-item {
+  margin-left: 20px; /* Space between menu items */
+}
+
+.navbar-link {
+  color: #fff; /* White text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 16px; /* Font size for menu items */
+}
+
+.navbar-link:hover {
+  text-decoration: underline; /* Underline on hover */
+}

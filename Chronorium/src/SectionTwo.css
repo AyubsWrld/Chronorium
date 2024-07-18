@@ -1,0 +1,92 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #0A0A0A; /* Ensure the background is set */
+}
+
+@font-face {
+    font-family: 'manrope';
+    src: url('fonts/manrope-bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'manrope';
+    src: url('fonts/manrope-regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'manrope';
+    src: url('fonts/manrope-medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'manrope';
+    src: url('fonts/manrope-semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'manrope';
+    src: url('fonts/manrope-extrabold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+.Container-Section-Two{
+  display: flex;
+  flex-direction: column;
+  gap: 150px; /* Add space between ArtworkOne and ArtworkTwo */
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 150px; 
+
+}
+
+.ArtworkOne,
+.ArtworkTwo {
+  display: flex;
+  flex-direction: row;
+  gap: 200px; /* Add space between text and image */
+  align-items: top ;
+
+}
+
+.Text-Section-Two{
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Add space between header and subtext */
+  text-align: left; /* Align text to the left */
+}
+
+.Header-Section-Two{
+  color: white;
+  font-size: 50px;
+  font-family: 'manrope', sans-serif; /* Ensure fallback font */
+  font-weight: 800;
+  margin-bottom: 10px; /* Add space below the header */
+}
+
+.Subtext-Section-Two{
+  color: #888888 ;
+  font-size: 24px;
+  font-family: 'manrope', sans-serif; /* Ensure fallback font */
+  font-weight: 500;
+  line-height: 1.5; /* Add line height for better readability */
+  margin-top: 10px; /* Add space above the subtext */
+  text-align: left; /* Align text to the left */
+}
+
+.Image {
+  width: 400px;
+  height: 400px;
+  background-color: #171616; /* Placeholder color for image */
+  border-radius: 18px;
+}

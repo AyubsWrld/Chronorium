@@ -1,0 +1,127 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* background-color: #16191B; */
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-regular.ttf') format('truetype');
+  font-weight: 400; /* Use numeric value for font-weight */
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-medium.ttf') format('truetype');
+  font-weight: 500; /* Use numeric value for font-weight */
+  font-style: normal;
+}
+
+.Container-Landing-Page{
+  width: 100%;
+  max-width: 1920px;
+  height: 100vh;
+  max-height: 1080px;
+  display: flex;
+  flex-direction: column;
+  gap: 70px;
+  /* margin-bottom: 50px; */
+}
+
+.OverarchingLanding{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.HeaderOne {
+  color: white;
+  font-size: 64px;
+  text-align: center;
+  font-family: 'manrope';
+  font-weight: bold;
+  line-height: 1.2;
+}
+
+ .OverarchingLanding .Subtext {
+  font-family: 'manrope';
+  color: #888888;
+  font-weight: 500; /* Correct font-weight */
+  text-align: center;
+  font-size: 20px;
+  width: 100%; /* Ensure it takes full width */
+}
+
+.Buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding: 30px;
+}
+
+.JoinForFree, .Login {
+  width: 95px;
+  height: 36px;
+  font-size: 12px;
+  color: white;
+  border: none;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-family: 'manrope';
+  font-weight: 400; /* Correct font-weight value */
+}
+
+.JoinForFree {
+  background-color: #1A1B1C;
+}
+
+.Login {
+  color: #1A1B1C;
+  background-color: white;
+}
+
+.Row-One, .Row-Three {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Row-Three {
+  gap: 10px;
+}
+
+.Interviewers-Text {
+  font-family: 'manrope';
+  font-size: 12px;
+  font-weight: 500; /* Correct font-weight value */
+  color: #C1C1C1;
+}
+
+.Companies {
+  width: 700px;
+  height: auto; /* Maintains aspect ratio */
+}
+
+.GradientText
+{
+  background: linear-gradient(to right, #B6FBFF, #83A4D4  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
