@@ -1,14 +1,14 @@
+
+
 import React from 'react';
-import './LandingPage.css';
+import Loops from './Loops'; // Adjust the path as needed
+import './LandingPage.css'; // Import the CSS for the page
 import companiesSvg from './assets/Grey.svg';
-import Loops from './Loops';
 
 function LandingPage() {
   return (
     <div className="Container-Landing-Page">
-      <div className="Loops-Container">
-        <Loops />
-      </div>
+      <Loops/> {/* Ensure this is the first child */}
       <div className="Row-One"></div>
       <div className="Row-Two">
         <div className="OverarchingLanding">
