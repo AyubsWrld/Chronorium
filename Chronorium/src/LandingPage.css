@@ -1,3 +1,4 @@
+/* src/LandingPage.css */
 
 * {
   margin: 0;
@@ -27,7 +28,8 @@
   font-style: normal;
 }
 
-.Container-Landing-Page{
+.Container-Landing-Page {
+  position: relative;
   width: 100%;
   max-width: 1920px;
   height: 100vh;
@@ -38,7 +40,7 @@
   /* margin-bottom: 50px; */
 }
 
-.OverarchingLanding{
+.OverarchingLanding {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -54,7 +56,7 @@
   line-height: 1.2;
 }
 
- .OverarchingLanding .Subtext {
+.OverarchingLanding .Subtext {
   font-family: 'manrope';
   color: #888888;
   font-weight: 500; /* Correct font-weight */
@@ -115,13 +117,30 @@
   height: auto; /* Maintains aspect ratio */
 }
 
-.GradientText
-{
-  background: linear-gradient(to right, #B6FBFF, #83A4D4  );
+.GradientText {
+  background: linear-gradient(to right, #B6FBFF, #83A4D4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
 }
 
+/* Added styles for Loops background */
+.Loops-Container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  z-index: 0; /* Ensures it is behind other content */
+  pointer-events: none; /* Makes it non-interactive */
+}
 
+.Row-One
+{
+  padding-top : 250px; 
+}
+.Row-One, .Row-Two, .Row-Three, .OverarchingLanding, .Text, .Buttons, .Companies {
+  position: relative;
+  z-index: 1; /* Ensures it is above the Loops component */
+}

@@ -16,9 +16,6 @@ function App() {
     <>
       <div className = "Overarching">
         <LandingPage/>
-        {/* <SectionTwo/> */}
-        {/* <SectionThree/> */}
-        {/* <PageTwo/> */}
       </div>
     </>
   );
