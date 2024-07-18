@@ -5,50 +5,91 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
 html, body {
   height: 100%;
   margin: 0;
 }
 
-/* Navbar styles */
-.navbar {
-  background-color: #333; /* Dark background color */
-  padding: 10px 20px; /* Padding for spacing */
+.sticky-header {
+  background-color: rgba(24, 24, 24, 0.8); /* Dark background color with opacity */
+  padding: 14px 20px; /* Padding for spacing */
   color: #fff; /* White text color */
   position: fixed; /* Fixed position at the top */
-  width: 100%; /* Full width */
-  top: 0; /* Aligns to the top */
-  left: 0; /* Aligns to the left */
+  top: 10px; /* Small space from the top */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Center horizontally */
   z-index: 1000; /* Ensure it stays above other content */
+  width: 450px; /* Set the width to a smaller percentage */
+  border-radius: 25px; /* Rounded corners */
+  /* box-shadow: 0 1px 1px rgba(131, 164, 212, 0.2), 0 0 1px rgba(182 , 251, 255, 0.2);  */
+  display: flex; /* Flexbox for layout */
+  align-items: center; /* Center items vertically */
+  backdrop-filter: blur(10px); /* Apply blur effect */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
 }
 
-.navbar-container {
+.header-content {
   display: flex; /* Flexbox for layout */
   justify-content: space-between; /* Space between logo and menu */
   align-items: center; /* Center items vertically */
+  width: 100%; /* Full width */
 }
 
-.navbar-logo {
-  font-size: 24px; /* Font size for logo */
+.logo-container {
+  display: flex;
+  align-items: center; /* Center items vertically */
+}
+
+.logo-image {
+  height: 25px; /* Adjust height as needed */
+  margin-right: 8px; /* Space between image and text */
+}
+
+.logo-text {
+  font-size: 18px; /* Font size for logo text */
   color: #fff; /* White text color */
   text-decoration: none; /* Remove underline */
+  font-family: 'manrope'; /* Use the custom font */
 }
 
-.navbar-menu {
+.header-menu ul {
   list-style: none; /* Remove bullets */
   display: flex; /* Flexbox for horizontal menu items */
 }
 
-.navbar-item {
+.header-menu li {
   margin-left: 20px; /* Space between menu items */
+  font-size: 12px;  
 }
 
-.navbar-link {
+.header-menu a {
   color: #fff; /* White text color */
   text-decoration: none; /* Remove underline */
-  font-size: 16px; /* Font size for menu items */
+  font-size: 13px; /* Font size for menu items */
+  font-family: 'manrope'; /* Use the custom font */
 }
 
-.navbar-link:hover {
-  text-decoration: underline; /* Underline on hover */
+.header-menu a:hover {
+  
 }
