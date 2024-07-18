@@ -14,7 +14,15 @@ function LandingPage() {
         <div className="OverarchingLanding">
           <div className="Text">
             <p className="HeaderOne">
-              You're More Than <br /><span className="GradientText">Just a Slip of Paper.</span>
+
+              <span className = 'WordOne'>You're </span>
+              <span className = 'WordTwo'>More </span>
+              <span className = 'WordThree'>Than</span>
+              <br />
+              <span className="GradientText">
+                Just a Slip of Paper.
+              </span>
+
             </p>
             <p className="Subtext">
               Obtain tangible credentials that are as meaningful as the hard work <br /> you invest in achieving them.

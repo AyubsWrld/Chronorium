@@ -53,7 +53,20 @@
   font-family: 'manrope';
   font-weight: bold;
   line-height: 1.2;
+  animation : fadeIn 800ms ease-out forwards ; 
+  animation-delay : 1s ; 
+  transform : translateY(20px) ; 
+  opacity : 0 ; 
 }
+
+.GradientText {
+  background: linear-gradient(to right, #B6FBFF, #83A4D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
 
 .OverarchingLanding .Subtext {
   font-family: 'manrope';
@@ -62,6 +75,10 @@
   text-align: center;
   font-size: 16px;
   width: 100%;
+  animation : fadeIn 800ms ease-out forwards ; 
+  opacity : 0 ; 
+  transform : translateY(15px) ; 
+  animation-delay : 1.3s ; 
 }
 
 .Buttons {
@@ -69,6 +86,10 @@
   flex-direction: row;
   gap: 10px;
   padding: 30px;
+  transform : translateY(15px) ; 
+  animation : fadeIn 800ms ease-out forwards ; 
+  animation-delay : 1.6s ; 
+  opacity : 0 ; 
 }
 
 .JoinForFree, .Login {
@@ -82,6 +103,33 @@
   transition: background-color 0.3s;
   font-family: 'manrope';
   font-weight: 400;
+}
+
+.Interviewers-Text {
+  font-family: 'manrope';
+  font-size: 12px;
+  font-weight: 500;
+  color: #C1C1C1;
+  transform : translateY(15px) ; 
+  animation : fadeIn 800ms ease-out forwards ; 
+  animation-delay : 1.7s ; 
+  opacity : 0 ; 
+}
+.Companies {
+  width: 700px;
+  height: auto;
+  transform : translateY(15px) ; 
+  animation : fadeIn 800ms ease-out forwards ; 
+  animation-delay : 1.8s ; 
+  opacity : 0 ; 
+}
+
+@keyframes fadeIn {
+  to
+  {
+    opacity : 1 ; 
+    transform : translateY(0px) ; 
+  }
 }
 
 
@@ -110,26 +158,6 @@
 
 .Row-Three {
   gap: 10px;
-}
-
-.Interviewers-Text {
-  font-family: 'manrope';
-  font-size: 12px;
-  font-weight: 500;
-  color: #C1C1C1;
-}
-
-.Companies {
-  width: 700px;
-  height: auto;
-}
-
-.GradientText {
-  background: linear-gradient(to right, #B6FBFF, #83A4D4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
 }
 
 /* Added styles for Loops background */

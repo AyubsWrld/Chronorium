@@ -47,8 +47,18 @@ html, body {
   align-items: center; /* Center items vertically */
   backdrop-filter: blur(10px); /* Apply blur effect */
   -webkit-backdrop-filter: blur(10px); /* Safari support */
+  opacity : 0 ; 
+  animation : NavAnimation 800ms ease-in forwards ;   
+  animation-delay :  800ms  ; 
 }
 
+
+@keyframes NavAnimation{
+  to
+  {
+    opacity : 1 ; 
+  }
+}
 .header-content {
   display: flex; /* Flexbox for layout */
   justify-content: space-between; /* Space between logo and menu */
