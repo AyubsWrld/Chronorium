@@ -2,18 +2,130 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #0A0A0A; /* Ensure the background is set */
 }
 
-.Overarching
-{
-  height : 300px;
-  width: 300px;
+.Container-SectionThree {
+  display: flex;
+  flex-direction: column;
+  padding-top: 0px;
+  margin-bottom: 150px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  padding-bottom: 150px;
 }
 
-.Text
-{
-  font-size : 300px ; 
-  color : white ; 
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-semibold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'manrope';
+  src: url('fonts/manrope-extrabold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+}
+
+.RowOne .ExpertLed {
+  align-items : left ; 
+  justify-content : left ; 
+  padding: 64px;
+  padding-bottom: 0px;
+  font-size: 46px;
+  font-family: 'manrope';
+  font-weight: 800;
+  color: white;
+  text-align: left;
+}
+
+.RowOne .HighlightText {
+  font-weight: bold;
+  color: #808080;
+}
+
+ .Container-SectionThree .RowTwo {
+  padding: 64px;
+  display: flex;
+  align-items: flex-start;
+  gap: 36px;
+  overflow: hidden;
+}
+
+.ImageContainer {
+  width: 1080px;
+  height: 810px;
+  border: 1px solid #2A2A2A;
+  border-radius: 20px;
+  background-color: #111111;
+  overflow: hidden;
+  position: relative; /* Needed for absolute positioning of LottieContainer */
+}
+
+#LeftMedia {
+  transform: translateX(558px);
+  animation: shiftX 400ms ease-out forwards;
+  animation-delay: 1s;
+}
+
+#RightMedia {
+  transform: translateX(-558px);
+  animation: shiftX 400ms ease-out forwards;
+  animation-delay: 1s;
+}
+
+@keyframes shiftX {
+  to {
+    transform: translateX(0px);
+  }
+}
+
+.RowThree {
+  display: flex;
+  gap: 350px;
+}
+
+.RowThree .Subtext {
+  color: #8E8E8E;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.Bolded {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+}
+.ImageContainer .LottieContainerThree {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 18px;
+  overflow: hidden;
 }
 

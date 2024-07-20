@@ -32,7 +32,7 @@ html, body {
 }
 
 .sticky-header {
-  background-color: rgba(24, 24, 24, 0.8); /* Dark background color with opacity */
+  background-color: rgba(18, 18, 18, 0.8); /* Dark background color with opacity */
   padding: 14px 20px; /* Padding for spacing */
   color: #fff; /* White text color */
   position: fixed; /* Fixed position at the top */

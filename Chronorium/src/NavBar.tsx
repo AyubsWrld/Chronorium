@@ -4,11 +4,11 @@ import "./NavBar.css"; // Import your CSS file
 
 const NavBar = () => {
   return (
-    <header className="sticky-header">
+    <header className="sticky-header" id = 'stickyHeader'>
       <div className="header-content">
         <div className="logo-container">
           <img src= {Logo} alt="Logo" className="logo-image" />
-          <h1 className="logo-text">Chronorium</h1>
+          <h1 className="logo-text">Certy</h1>
         </div>
         <nav className="header-menu">
           <ul>
