@@ -2,43 +2,95 @@ import React, { useEffect, useRef } from 'react';
 import './SectionThree.css';
 import lottie from 'lottie-web';
 import GoodMorning from './assets/anims/Morning.json';
+import Credential from './assets/anims/Credential.json';
 
 function SectionThree() {
   const goodMorningRef = useRef(null);
+  const credentialRef = useRef(null);
   const lottieAnimationRef = useRef(null);
+  const lottieAnimationCredentialRef = useRef(null);
+  const leftMediaRef = useRef(null);
+  const rightMediaRef = useRef(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            lottieAnimationRef.current = lottie.loadAnimation({
-              container: goodMorningRef.current,
-              renderer: 'svg',
-              loop: false,
-              autoplay: true,
-              animationData: GoodMorning,
-            });
+            if (entry.target.id === 'LeftMedia') {
+              entry.target.classList.add('shiftX-animation');
+              lottieAnimationCredentialRef.current = lottie.loadAnimation({
+                container: credentialRef.current,
+                renderer: 'svg',
+                loop: false,
+                autoplay: true,
+                animationData: Credential,
+              });
+            }
+            if (entry.target.id === 'RightMedia') {
+              entry.target.classList.add('shiftX-animation');
+              lottieAnimationRef.current = lottie.loadAnimation({
+                container: goodMorningRef.current,
+                renderer: 'svg',
+                loop: false,
+                autoplay: true,
+                animationData: GoodMorning,
+              });
+            }
           } else {
-            if (lottieAnimationRef.current) {
-              lottieAnimationRef.current.stop();
+            if (entry.target.id === 'LeftMedia') {
+              entry.target.classList.remove('shiftX-animation');
+              void entry.target.offsetWidth; // Trigger reflow to restart the animation
+              if (lottieAnimationCredentialRef.current) {
+                lottieAnimationCredentialRef.current.destroy();
+                lottieAnimationCredentialRef.current = null;
+              }
+            }
+            if (entry.target.id === 'RightMedia') {
+              entry.target.classList.remove('shiftX-animation');
+              void entry.target.offsetWidth; // Trigger reflow to restart the animation
+              if (lottieAnimationRef.current) {
+                lottieAnimationRef.current.destroy();
+                lottieAnimationRef.current = null;
+              }
             }
           }
         });
       },
-      { threshold: 0.5 } // Trigger when 50% of the element is visible
+      { threshold: 0.2 } // Trigger when 20% of the element is visible
     );
 
     if (goodMorningRef.current) {
       observer.observe(goodMorningRef.current);
+    }
+    if (credentialRef.current) {
+      observer.observe(credentialRef.current);
+    }
+    if (leftMediaRef.current) {
+      observer.observe(leftMediaRef.current);
+    }
+    if (rightMediaRef.current) {
+      observer.observe(rightMediaRef.current);
     }
 
     return () => {
       if (goodMorningRef.current) {
         observer.unobserve(goodMorningRef.current);
       }
+      if (credentialRef.current) {
+        observer.unobserve(credentialRef.current);
+      }
+      if (leftMediaRef.current) {
+        observer.unobserve(leftMediaRef.current);
+      }
+      if (rightMediaRef.current) {
+        observer.unobserve(rightMediaRef.current);
+      }
       if (lottieAnimationRef.current) {
         lottieAnimationRef.current.destroy();
+      }
+      if (lottieAnimationCredentialRef.current) {
+        lottieAnimationCredentialRef.current.destroy();
       }
     };
   }, []);
@@ -52,10 +104,10 @@ function SectionThree() {
         </p>
       </div>
       <div className='RowTwo'>
-        <div className='ImageContainer' id='LeftMedia'>
-          {/* Add any content if needed */}
+        <div className='ImageContainer' id='LeftMedia' ref={leftMediaRef}>
+          <div className="LottieContainerThree" ref={credentialRef}></div>
         </div>
-        <div className='ImageContainer' id='RightMedia'>
+        <div className='ImageContainer' id='RightMedia' ref={rightMediaRef}>
           <div className="LottieContainerThree" ref={goodMorningRef}></div>
         </div>
       </div>

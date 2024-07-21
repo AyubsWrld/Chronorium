@@ -14,47 +14,48 @@ function SectionTwo() {
   const lottieRefThree = useRef(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            lottie.loadAnimation({
-              container: lottieRef.current,
-              renderer: 'svg',
-              loop: false,
-              autoplay: true,
-              animationData: animationData,
-            });
-            lottie.loadAnimation({
-              container: lottieRefTwo.current,
-              renderer: 'svg',
-              loop: false,
-              autoplay: true,
-              animationData: animationDataTwo,
-            });
-            lottie.loadAnimation({
-              container: lottieRefThree.current,
-              renderer: 'svg',
-              loop: false,
-              autoplay: true,
-              animationData: animationDataThree,
-            });
-          } else {
-            lottie.stop();
-          }
-        });
-      },
-      { threshold: 0.5 } // Trigger when 50% of the element is visible
-    );
+    const observers = [];
 
-    if (lottieRef.current) observer.observe(lottieRef.current);
-    if (lottieRefTwo.current) observer.observe(lottieRefTwo.current);
-    if (lottieRefThree.current) observer.observe(lottieRefThree.current);
+    const loadAnimation = (containerRef, animationData) => {
+      if (!containerRef.current) return;
+      return lottie.loadAnimation({
+        container: containerRef.current,
+        renderer: 'svg',
+        loop: false,
+        autoplay: false,
+        animationData: animationData,
+      });
+    };
+
+    const animOne = loadAnimation(lottieRef, animationData);
+    const animTwo = loadAnimation(lottieRefTwo, animationDataTwo);
+    const animThree = loadAnimation(lottieRefThree, animationDataThree);
+
+    const observerCallback = (animation) => (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          animation.play();
+        } else {
+          animation.stop();
+        }
+      });
+    };
+
+    observers.push(new IntersectionObserver(observerCallback(animOne), { threshold: 0.5 }));
+    observers.push(new IntersectionObserver(observerCallback(animTwo), { threshold: 0.5 }));
+    observers.push(new IntersectionObserver(observerCallback(animThree), { threshold: 0.5 }));
+
+    if (lottieRef.current) observers[0].observe(lottieRef.current);
+    if (lottieRefTwo.current) observers[1].observe(lottieRefTwo.current);
+    if (lottieRefThree.current) observers[2].observe(lottieRefThree.current);
 
     return () => {
-      if (lottieRef.current) observer.unobserve(lottieRef.current);
-      if (lottieRefTwo.current) observer.unobserve(lottieRefTwo.current);
-      if (lottieRefThree.current) observer.unobserve(lottieRefThree.current);
+      observers.forEach((observer, index) => {
+        if (index === 0 && lottieRef.current) observer.unobserve(lottieRef.current);
+        if (index === 1 && lottieRefTwo.current) observer.unobserve(lottieRefTwo.current);
+        if (index === 2 && lottieRefThree.current) observer.unobserve(lottieRefThree.current);
+      });
+      lottie.destroy();
     };
   }, []);
 
