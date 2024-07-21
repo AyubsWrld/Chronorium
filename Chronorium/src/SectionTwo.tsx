@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import lottie from 'lottie-web';
 import capabilitiesIcon from './assets/Icons/Capabilities.png';
 import star from './assets/Icons/Star.png';
+import shine from './assets/Icons/Shine.png';
 import checkmark from './assets/Icons/Checkmark.png';
 import animationData from './assets/anims/Stars.json';
 import animationDataTwo from './assets/anims/Resumes.json';
@@ -61,6 +62,21 @@ function SectionTwo() {
 
   return (
     <div className="Container-Section-Two">
+      <div className='Tester'>
+        <div className = 'Heading'>
+          <img src={shine} alt="Shine" className="Shine" />
+          <p className = 'Interview'>
+            Gain Exposure
+          </p>
+        </div>
+        <p className='ExpertLed'>
+          Increase your visiblity in the job market.<br />
+          <span className='HighlightText'> with real-world skill assessments, and <br/>industry-recognized certifications.</span>
+        </p>
+        {/* <button className = 'Button'> */}
+        {/*   Book your's today  */}
+        {/* </button> */}
+      </div>
       <div className="RowOne">
         <div className="ArtworkOne">
           <div className="Image">

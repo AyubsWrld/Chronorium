@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import './SectionThree.css';
 import lottie from 'lottie-web';
+import focusUser from './assets/Icons/UserFocus.png';
 import GoodMorning from './assets/anims/Morning.json';
 import Credential from './assets/anims/Credential.json';
 
@@ -98,10 +99,19 @@ function SectionThree() {
   return (
     <div className='Container-SectionThree'>
       <div className='RowOne'>
+        <div className = 'Heading'>
+          <img src={focusUser} alt="UserFocus" className="userFocus" />
+          <p className = 'Interview'>
+            Interview
+          </p>
+        </div>
         <p className='ExpertLed'>
-          Complete expert-led interviews.<br />
+          Partake in expert-led interviews.<br />
           <span className='HighlightText'>boost your hiring prospects</span>
         </p>
+        <button className = 'Button'>
+          Book your's today 
+        </button>
       </div>
       <div className='RowTwo'>
         <div className='ImageContainer' id='LeftMedia' ref={leftMediaRef}>
@@ -113,18 +123,22 @@ function SectionThree() {
       </div>
       <div className='RowThree'>
         <div>
-          <p className='Subtext'>
-            <span className='Bolded'>Schedule Your Interview.</span> Choose an expert from our network and<br />
-            book a time that suits you. Prepare for a tailored interview designed<br />
-            to assess your skills through practical, job-specific tasks.
-          </p>
-        </div>
-        <div>
+
           <p className='Subtext'>
             <span className='Bolded'>Earn and Showcase Credentials.</span> receive credentials verified by<br />
             industry professionals. Display these credentials on your profile to<br />
             demonstrate your expertise and improve your hiring prospects.
           </p>
+
+        </div>
+        <div>
+
+          <p className='Subtext'>
+            <span className='Bolded'>Schedule Interviews.</span> Choose an expert from our network and<br />
+            book a time that suits you. Prepare for a tailored interview designed<br />
+            to assess your skills through practical, job-specific tasks.
+          </p>
+
         </div>
       </div>
     </div>

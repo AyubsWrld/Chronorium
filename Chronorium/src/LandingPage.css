@@ -40,6 +40,64 @@
   z-index: 1;
 }
 
+.background {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(to right, #000000, #000000);
+  display: flex;
+  flex-grow: 1;
+  z-index: -1;
+  opacity : 0 ; 
+  animation : loadIn 3s ease-in forwards ; 
+}
+
+/* Noise overlay */
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/src/assets/images/Gradient.png');
+  opacity: 0.14; /* Adjust opacity to control grain effect */
+  z-index: 1; /* Ensure the noise is above the background gradient */
+  pointer-events: none; /* Prevent the noise layer from interfering with interactions */
+}
+
+.background div {
+  position: absolute;
+  border-radius: 100%;
+  height: 0;
+  filter: blur(240vw);
+  opacity: 0;
+
+}
+
+.background div:nth-child(1) {
+  background: linear-gradient(132deg, #83a4d4 0.00%, #b6fbff 100.00%);
+  width: 51%;
+  padding-top: 51%;
+  left: 50%; /* Center the circle horizontally */
+  top: 0%;
+  transform: translateX(-50%) translateY(-50%); /* Center the circle */
+  opacity : 0.4; 
+}
+
+.background div:nth-child(2) {
+  background: linear-gradient(132deg, #7f7aff 0.00%, #5cc9ff 100.00%);
+  width: 31%;
+  padding-top: 31%;
+  left: 50%; /* Center the circle horizontally */
+  top: 0%;
+  transform: translateX(-50%) translateY(-50%); /* Center the circle */
+}
+
+
 .OverarchingLanding {
   display: flex;
   align-items: center;
@@ -140,14 +198,6 @@
   opacity : 0 ; 
 }
 
-@keyframes fadeIn {
-  to
-  {
-    opacity : 1 ; 
-    transform : translateY(0px) ; 
-  }
-}
-
 .Login {
   color: #1A1B1C;
   background-color: white;
@@ -192,4 +242,19 @@
 .Row-One, .Row-Two, .Row-Three, .OverarchingLanding, .Text, .Buttons, .Companies {
   position: relative;
   z-index: 1;
+}
+
+@keyframes fadeIn {
+  to
+  {
+    opacity : 1 ; 
+    transform : translateY(0px) ; 
+  }
+}
+
+@keyframes loadIn{
+  to
+  {
+    opacity : 1 ; 
+  }
 }

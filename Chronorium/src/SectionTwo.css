@@ -49,6 +49,60 @@
   margin-bottom: 150px; 
 
 }
+.Tester{
+  display : flex ; 
+  flex-direction: column ; 
+  padding:  60px ; 
+  padding-left :  285px ; 
+  align-items : left ; 
+  /* background-color : red ;  */
+}
+
+.Shine{
+  height : 32px ; 
+  padding-right : 4px ; 
+}
+
+
+.Tester .Heading{
+  display : flex ; 
+  flex-direction: row; 
+  align-items : center  ; 
+  gap : 8px ; 
+
+}
+.Tester .ExpertLed {
+  justify-content : left ; 
+  align-items : Left; 
+  padding-top: 22px;
+  padding-bottom: 24px;
+  font-size: 46px;
+  font-family: 'manrope';
+  font-weight: 700;
+  color: white;
+  text-align : left ; 
+}
+
+.Tester .Button {
+
+  width: 175px;
+  height: 44px;
+  font-size: 16px;
+  color: white;
+  background-color: #1A1B1C;
+  box-shadow: 0 1px 4px rgba(131, 164, 212, 0.2), 0 0 4px rgba(182 , 251, 255, 0.2); 
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'manrope';
+  font-weight: 500;
+}
+
+
+.Tester .HighlightText {
+  font-weight: bold;
+  color: #808080;
+}
 
 .ArtworkOne, .ArtworkTwo
 {
@@ -91,12 +145,14 @@
   opacity : 0 ; 
 }
 .Image {
-  width: 520px;
-  height: 420px;
+  width: 648px;
+  height: 504px;
   padding: 24px; /* Adjust based on the desired stroke width */
-  /* background: linear-gradient(135deg, rgba(182, 251, 255, 1), rgba(131, 164, 212, 1));  */
   border-radius: 18px;
-  box-shadow: 0 1px 2px rgba(182, 251, 255, 1), 0 0 2px rgba(131, 164, 212, 1);
+  background-color : black;
+  box-shadow: 0 1px 2px rgba(42, 42, 42, 1), 0 0 2px rgba(42, 42, 42, 1);
+  /* background-color : #2A2A2A ; */
+  border-style : solid ; 
   position: relative;
   z-index: 0;
 }
@@ -108,32 +164,22 @@
   left: 1px; /* Same value as padding */
   right: 1px; /* Same value as padding */
   bottom: 1px; /* Same value as padding */
-  background-color: #000000; /* Placeholder color for image */
   border-radius: 18px; /* Subtract padding from border-radius */
   z-index: -1;
+
 }
 
 .LottieContainer {
   position: absolute;
   top: 0;
-  left: 0;
+  left: -14px;
   width: 100%;
   height: 100%;
   z-index: -1;
-  border-radius: 18px;
+  border-radius: 22px;
   overflow: hidden;
 }
 
-.LottieContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  border-radius: 18px;
-  overflow: hidden;
-}
 .LottieContainerTwo {
   position: absolute;
   top: 0;
@@ -144,6 +190,7 @@
   border-radius: 18px;
   overflow: hidden;
 }
+
 
 .LottieContainerThree {
   position: absolute;
@@ -184,11 +231,12 @@
   padding-bottom : 20px ;
 }
 .ImageThree {
-  width: 1050px;
-  height: 420px;
+  width: 1310px;
+  height: 504px;
   border-radius: 18px;
   padding: 1px; /* Adjust based on the desired stroke width */
-  box-shadow: 0 1px 2px rgba(200 , 251, 255, 1), 0 0 2px rgba(131, 164, 212, 1);
+  /* box-shadow: 0 1px 2px rgba(200 , 251, 255, 1), 0 0 2px rgba(131, 164, 212, 1); */
+  background-color : #2A2A2A ;
   border-radius: 18px;
   position: relative;
   z-index: 0;
@@ -231,3 +279,4 @@
     transform : translateY(0px) ; 
   }
 }
+

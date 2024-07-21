@@ -50,6 +50,7 @@ html, body {
   opacity : 0 ; 
   animation : NavAnimation 800ms ease-in forwards ;   
   animation-delay :  800ms  ; 
+  border : 1px solid #2A2A2A  ; 
 }
 
 

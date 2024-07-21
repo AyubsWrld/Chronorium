@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import Loops from './Loops'; // Adjust the path as needed
 import './LandingPage.css'; // Import the CSS for the page
@@ -8,21 +6,25 @@ import companiesSvg from './assets/Grey.svg';
 function LandingPage() {
   return (
     <div className="Container-Landing-Page">
+      {/* Background elements */}
+      <div className="background">
+        <div></div>
+        <div></div>
+      </div>
+      
       <Loops/> {/* Ensure this is the first child */}
       <div className="Row-One"></div>
       <div className="Row-Two">
         <div className="OverarchingLanding">
           <div className="Text">
             <p className="HeaderOne">
-
-              <span className = 'WordOne'>You're </span>
-              <span className = 'WordTwo'>More </span>
-              <span className = 'WordThree'>Than</span>
+              <span className='WordOne'>You're </span>
+              <span className='WordTwo'>More </span>
+              <span className='WordThree'>Than</span>
               <br />
               <span className="GradientText">
                 Just a Slip of Paper.
               </span>
-
             </p>
             <p className="Subtext">
               Obtain tangible credentials that are as meaningful as the hard work <br /> you invest in achieving them.

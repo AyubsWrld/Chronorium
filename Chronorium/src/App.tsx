@@ -17,8 +17,8 @@ function App() {
       <div className = "Overarching">
         <NavBar/>
         <LandingPage/>
-        <SectionTwo/> 
         <SectionThree/> 
+        <SectionTwo/> 
       </div>
     </>
   );
